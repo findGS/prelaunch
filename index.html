@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join Our Pre-Launch Mailing List</title>
+    <link rel="icon" href="groundstation_icon.png" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            text-align: center;
+            max-width: 600px;
+            width: 100%;
+        }
+        h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            color: #555;
+        }
+        input[type="email"] {
+            width: 95%;
+            padding: 15px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        select {
+            width: 95%;
+            padding: 15px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 18px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .privacy {
+            font-size: 14px;
+            color: #777;
+        }
+        .icon{
+            width: 12em;
+            height: 12em;
+            padding-left: 3em;;
+        }
+        .message {
+            display: none;
+            font-size: 16px;
+            color: green;
+            margin-top: 20px;
+        }
+    </style>
+    <script>
+        function handleSubmit(event) {
+            event.preventDefault();
+
+            const form = event.target;
+            const data = new FormData(form);
+            const action = form.action;
+            const method = form.method;
+
+            fetch(action, {
+                method: method,
+                body: data,
+                mode: 'no-cors'
+            }).then(() => {
+                document.getElementById('form-container').style.display = 'none';
+                document.querySelector('.message').style.display = 'block';
+            }).catch(error => {
+                console.error('Error!', error.message);
+            });
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <img src="groundstation_icon.png" class="icon"/>
+        <h1>Find a Ground Station.com</h1>
+        <p>Aiming to become the world leading platform that connects satellites and ground stations. We're launching soon and we want you to be the first to know. <br/><br/>Join our pre-launch mailing list for the latest updates and exclusive offers!</p>
+        <div id="form-container">
+            <form action="https://docs.google.com/forms/d/e/1FAIpQLSfoRyuDrg6o6Ss0z_ImImcUk5L1enPnjs77DYQrN2QPKjJLiQ/formResponse" method="POST" onsubmit="handleSubmit(event)">
+                <input type="email" name="entry.1447742789" placeholder="Enter your email" required>
+                <select name="entry.479658209" required>
+                    <option value="" disabled selected>Select your category</option>
+                    <option value="Ground Station Service Provider">Ground Station Service Provider</option>
+                    <option value="Satellite Operator">Satellite Operator</option>
+                    <option value="Curious Person">Curious Person</option>
+                </select>
+                <button type="submit">Sign Up</button>
+            </form>
+        </div>
+        <p class="message">Thank you for signing up! We'll keep you updated.</p>
+        <p class="privacy">We respect your privacy. Unsubscribe at any time.</p>
+    </div>
+</body>
+</html>
